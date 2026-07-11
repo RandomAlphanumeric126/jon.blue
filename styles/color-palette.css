@@ -1,0 +1,78 @@
+/* This color pallete consists of all hex color codes in the 
+ * endesge-64 color pallete from lospec. With the exception
+ * of White which was replaced with Unicorn Silver which is
+ * a bit softer without sacrificing too much contrast.
+ *
+ * All color names were sourced from:
+ * https://colornamer.robertcooper.me/
+ */
+
+:root{
+
+    --CURSED_BLACK:             #131313;
+    --EERIE_BLACK:              #1B1B1B;
+    --DIRE_WOLF:                #272727;
+    --RAVEN_BLACK:              #3D3D3D;
+    --KNIGHTS_ARMOR:            #5D5D5D;
+    --BLACK_MANA:               #858585;
+    --BRAINSTEM_GREY:           #B4B4B4;
+    /*--WHITE:                    #FFFFFF;*/
+    --UNICORN_SILVER:           #E8E8E8;/* Replacement for --WHITE */
+    --MEMORY_LANE:              #C7CFDD;
+    --ROCK_BLUE:                #92A1B9;
+    --NICHE_BLUE:               #657392;
+    --BLACKBERRY_COBBLER:       #424C6E;
+    --TROPICAL_NIGHT:           #2A2F4E;
+    --DARK_KNIGHT:              #1A1932;
+    --TRISTESSE:                #0E071B;
+    --BATS_CLOAK:               #1C121C;
+    --BRUISED_PLUM:             #391f21;
+    --CHRISTMAN_BROWN:          #5D2C28;
+    --BURNING_BRIER:            #8A4836;
+    --ORANGE_LILY:              #BF6F4A;
+    --INVENTINVE_ORANGE:        #E69C69;
+    --SUNDOWN:                  #F6CA9F;
+    --PEACH_UMBRELLA:           #F9E6CF;
+    --OPTIMIST_GOLD:            #EDAB50;
+    --LAVA_PIT:                 #E07438;
+    --PUREED_PUMPKIN:           #C64524;
+    --OLD_MANDARIN:             #8E251D;
+    --AEROSPACE_ORANGE:         #FF5000;
+    --RETRO_NECTARINE:          #ED7614;
+    --CADMIUM_YELLOW:           #FFA214;
+    --CHEERFUL_YELLOW:          #FFC825;
+    --XANTHE_YELLOW:            #FFEB57;
+    --HONEYDEW_PEEL:            #D3FC7E;
+    --STADIUM_LAWN:             #99E65F;
+    --RANGE_LAND:               #5AC54F;
+    --FORMAL_GARDEN:            #33984B;
+    --SPARKLING_EMERALD:        #1E6F50;
+    --STOCKADE_GREEN:           #134C4C;
+    --HALITE_BLUE:              #0C2E44;
+    --ATENEO_BLUE:              #00396D;
+    --INDIGO_BUNTING:           #0069AA;
+    --ATMOSPHERE:               #0098DC;
+    --BRIGHT_SKY_BLUE:          #00CDF9;
+    --CENDRA_BLUE:              #0CF1FF;
+    --ETERNAL_BLUE:             #94FDFF;
+    --PUFF_OF_PINK:             #FDD2ED;
+    --FRAIL_FUCHSIA:            #F389F5;
+    --GEISHA_PINK:              #DB3FFD;
+    --POISON_PURPLE:            #7A09FA;
+    --BUSTY_PURPLE:             #3003D9;
+    --BLUE_TRUST:               #0C0293;
+    --MIDNIGHT_MIRAGE:          #03193F;
+    --VELVET_COSMOS:            #3B1443;
+    --PRETTY_IN_PRUNE:          #622461;
+    --PURPLE_EXCELLENCY:        #93388F;
+    --FUCHSIA_TINT:             #CA52C9;
+    --PINK_FLAMBE:              #C85086;
+    --STRAWBERRY_FIELD:         #F68187;
+    --RED_MANA:                 #F5555D;
+    --ALLURA_RED:               #EA323C;
+    --ELECTRIC_CRIMSON:         #FF0040;
+    --CHERRY_SANGRIA:           #C42430;
+    --RED_DAHLIA:               #891E2B;
+    --BURNT_CRIMSON:            #571C27;
+
+}
