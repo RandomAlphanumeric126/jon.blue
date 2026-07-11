@@ -1,0 +1,119 @@
+/* SOURCE: 
+ *   Andy Bell (https://piccalil.li/blog/a-more-modern-css-reset/)
+ *      1, 2, 4, 5, 6, 7, 8, 9, 12, 13
+ *
+ *   Josh Comeau (https://www.joshwcomeau.com/css/custom-css-reset/)
+ *      3, 7.1, 10, 11, 14
+ */
+
+
+/* 1. Box sizing rules */
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+
+
+/* 2. Prevent font size inflation */
+html {
+   -moz-text-size-adjust: none;
+   -webkit-text-size-adjust: none;
+   text-size-adjust: none;
+}
+
+
+/* 3. Remove default margin in favour of better control in authored CSS */
+*:not(dialog) {
+   margin: 0;
+}
+
+
+/* 4. Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+   list-style: none;
+}
+
+
+/* 5. Set core body defaults */
+body {
+   min-height: 100vh;
+   line-height: 1.5;
+   -webkit-font-smoothing: antialiased;
+   /* Josh Comeau */
+}
+
+
+/* 6. Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+   line-height: 1.1;
+}
+
+
+/* 7. Balance text wrapping on headings */
+p { text-wrap: pretty; } /* May Be Slow -- Josh Comeau */
+
+h1,
+h2,
+h3,
+h4 {
+   text-wrap: balance;
+}
+
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4 {
+   overflow-wrap: break-word;
+}
+
+/* 9. A elements that don't have a class get default styles */
+a:not([class]) {
+   text-decoration-skip-ink: auto;
+   color: currentColor;
+}
+
+/* 10. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+   display: block;
+   max-width: 100%;
+}
+
+/* 11. Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+   font: inherit;
+}
+
+/* 12. Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+   min-height: 10em;
+}
+
+/* 13. Anything that has been anchored to should have extra scroll margin */
+:target {
+   scroll-margin-block: 5ex;
+}
+
+
+/* 14. Create a root stacking context */
+
+#root, #__next {
+  isolation: isolate;
+}
