@@ -3,27 +3,27 @@
 
 :root {
    /* Light Mode Colors */
-   --color_bg-light: var(--UNICORN_SILVER);
-   --color_text-light: var(--EERIE_BLACK);
+   --color_bg-light   : var(--UNICORN_SILVER);
+   --color_text-light : var(--EERIE_BLACK);
 
    /* Dark Mode Colors */
-   --color_bg-dark: var(--CURSED_BLACK);
-   --color_text-dark: var(--UNICORN_SILVER)
+   --color_bg-dark   : var(--CURSED_BLACK);
+   --color_text-dark : var(--UNICORN_SILVER)
 }
 
 body {
-   min-width: 100%;
-   min-height: 100%;
+   min-width  : 100%;
+   min-height : 100%;
 
-   background-color: var(--color_bg-light);
-   color: var(--color_text-light);
+   color            : var(--color_text-light);
+   background-color : var(--color_bg-light);
 }
 
 @media (prefers-color-scheme: dark) {
 
    body {
-      background-color: var(--color_bg-dark);
-      color: var(--color_text-dark);
+      color            : var(--color_text-dark);
+      background-color : var(--color_bg-dark);
    }
 
 }
