@@ -12,11 +12,15 @@
 }
 
 body {
-   min-width  : 100%;
-   min-height : 100%;
+   min-width: 100vw;
+   min-height: 100vh;
 
    color            : var(--color_text-light);
    background-color : var(--color_bg-light);
+}
+
+.flex {
+   display: flex;
 }
 
 @media (prefers-color-scheme: dark) {
