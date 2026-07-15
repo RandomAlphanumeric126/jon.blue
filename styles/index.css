@@ -1,24 +1,56 @@
+/* TEMPORARY:
+ * The following styles for testing purposes only.
+ * They >>> MUST <<< be removed before delivery
+ * Remove unneeded styles and refactor where necessary */
+
+
+main {
+   --border-style: 1px solid black;
+   border-left: var(--border-style);
+   border-right: var(--border-style);
+   max-width: 1920px;
+}
+
+
+/* END TEMPORARY STYLES */
+
+
 body {
    display: flex;
+   justify-content: center;
 }
 
 main {
    flex             : 1;
    display          : flex;
-   background-color : red;
    justify-content  : center;
    align-items      : center;
 }
 
 .hero {
-   background-color : blue;
-   max-width        : 800px;
-   flex             : 0 1 80%;
-   display: flex;
-   flex-direction: column;
+   font-size      : 2rem;
+   flex           : 0 1 min(85%, 1370px);
+   display        : flex;
+   flex-direction : column;
+   min-height     : min(500px, 70vh);
+   padding        : 2rem;
+   gap            : 3rem;
+
+   h2 {
+      display: inline-block;
+      text-align: right;
+      flex: 0 1 fit-content;
+   } 
 }
 
-small {
-   font-size: 0.4em;
-   background-color: green;
+
+
+.whisper-text {
+   font-size: 0.3em;
+}
+
+.whisper-text.inline {
+   align-self: flex-end;
+   margin-bottom: 0.46rem;
+   margin-left: 1em;
 }
