@@ -39,9 +39,8 @@ ol[role='list'] {
 /* 5. Set core body defaults */
 body {
    min-height: 100vh;
-   line-height: 1.5;
-   -webkit-font-smoothing: antialiased;
-   /* Josh Comeau */
+   /* line-height: 1.5; */
+   -webkit-font-smoothing: antialiased;   /* Josh Comeau */
 }
 
 
@@ -53,7 +52,7 @@ h4,
 button,
 input,
 label {
-   line-height: 1.1;
+   /* line-height: 1.1; */
 }
 
 
