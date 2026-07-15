@@ -1,3 +1,28 @@
-.in-dev {
-   outline: 2px solid hsla(60, 100%, 50%, 0.25);
+.current-wip {
+   outline: 2px solid hsla(60, 100%, 50%, 1);
+   /* background-image: url("../assets/images/bg/bg-grid.png"); */
 }
+
+/* Hide all children for distraction free container styling */
+.hide-children * {
+   visibility: hidden;
+}
+
+
+
+/* Do not render children */
+.ignore-children * {
+   display: none;
+}
+
+/* Apply outlines to hovered elements to show filial hierarchy */
+*:hover {
+   &:has(:hover) {outline: 2px dotted red;}
+   *:not(:has(:hover)):hover {
+      outline: 2px dashed blue;
+
+
+      > * { outline: 1px dashed green; }
+   }
+}
+
