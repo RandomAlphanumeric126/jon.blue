@@ -1,0 +1,6 @@
+.dev-banner {
+   display: flex;
+   background-color: red;
+   min-height: 1rem;
+   width: 100%;
+}
