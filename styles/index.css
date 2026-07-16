@@ -34,13 +34,39 @@ main {
    flex-direction : column;
    min-height     : min(500px, 70vh);
    padding        : 2rem;
-   gap            : 3rem;
+   gap            : 4rem;
+   padding-top: 6rem;
 
    h2 {
       display: inline-block;
       text-align: right;
       flex: 0 1 fit-content;
    } 
+
+   p:not(.whisper-text.inline) {
+      text-align: right;
+      max-width: 35rem;
+   }
+
+   .intro {
+      justify-content: flex-end;
+   }
+
+   .flex-col {
+      flex: 1 0 fit-content;
+   }
+
+   .spacer {
+      flex-basis: 10rem;
+   }
+
+   .flex-col, .intro {
+      align-items: flex-end;
+   }
+
+   .flex-col .whisper-text {
+      margin-right: 6.35rem;
+   }
 }
 
 
