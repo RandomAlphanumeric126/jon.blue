@@ -17,6 +17,9 @@
 
 * {margin: 0; padding: 0;}
 
+/* Make sure to never render the dev-banner if the dev files are missing */
+.dev-banner { display: none; }
+
 body {
    min-width: 100vw;
    min-height: 100vh;
@@ -37,6 +40,10 @@ body {
 
 .no-wrap {
    text-wrap: nowrap;
+}
+
+.spacer {
+   flex: 0 10;
 }
 
 @media (prefers-color-scheme: dark) {
