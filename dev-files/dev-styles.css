@@ -33,3 +33,10 @@ html {
    }
 }
 
+
+
+
+
+body:has(.hide-content:checked) {
+   *:not(.dev-banner, .dev-banner *):where(p, :not(:has(>*))) {visibility: hidden;}
+}
