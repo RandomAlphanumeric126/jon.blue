@@ -17,8 +17,20 @@ main {
 
 body {
    display: flex;
+   flex-direction: column;
+}
+
+header, .belly, footer {
+   width: 100vw;
+}
+
+.belly {
+   flex: 1;
    justify-content: center;
 }
+
+
+
 
 main {
    flex             : 1;
