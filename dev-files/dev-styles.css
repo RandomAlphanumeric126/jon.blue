@@ -10,11 +10,6 @@ html {
    /* background-image: url("../assets/images/bg/bg-grid.png"); */
 }
 
-/* Hide all children for distraction free container styling */
-.hide-children * {
-   visibility: hidden;
-}
-
 
 
 /* Do not render children */
@@ -37,6 +32,7 @@ html {
 
 
 
+/* Hide page content for distraction free container styling */
 body:has(.hide-content:checked) {
    *:not(.dev-banner, .dev-banner *):where(p, :not(:has(>*))) {visibility: hidden;}
 }
