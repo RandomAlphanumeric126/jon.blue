@@ -41,7 +41,7 @@ body:has(.hierarchy-on-hover:checked) {
 
 /* Enable X-Ray Vision */
 body:has(.x-ray:checked) {
-   * {
+   *:not(.dev-banner, .dev-banner *) {
       opacity: 0.60 !important;
    }
 }

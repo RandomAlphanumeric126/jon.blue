@@ -12,7 +12,7 @@
    border-bottom: 2px dashed red;
    text-shadow: 1px 1px #0006;
 
-   &:hover {
+   &:hover, &:has(:checked) {
       background-color: red;
       opacity: 1;
    }
