@@ -3,17 +3,17 @@
 <!--
 TODO: 
    [ ] - Add an image to the page featuring a collection of objects representing my interests/hobbies
-         [ ] - Set as background image that resizes to fit viewport
-         [ ] - Image remains visible through the 'sidebar' via a glass effect
-         [ ] - Image must be responsive
-               [ ] - Display  portrait version for mobile devices
-   [ ] - 'Sidebar' includes a translucent 'glass' aesthetic
-         [ ] - Angle the sidebar such that it narrows toward the bottom
-               ( Use clip-path + shape-outside to achieve this instead of rotate)
-               [ ] - Align right edge of content to the right (angled) edge of the sidebar
-               [ ] - Align left edge of content to the (padded) left edge of the viewport
-         [ ] - Glass effect should include a blur applied to the bg image
-         [ ] - Glass effect should appear raised with a bezel (border) applied to the right edge
+         [ ] - Replace temporary stock photo with my own
+         [X] - Set as background image that resizes to fit viewport
+         [X] - Image remains visible through the 'sidebar' via a glass effect
+         [X] - Image must be responsive
+               [X] - Display  portrait version for mobile devices
+   [X] - 'Sidebar' includes a translucent 'glass' aesthetic
+         [X] - Angle the sidebar such that it narrows toward the bottom
+               [X] - Align right edge of content to the right (angled) edge of the sidebar
+               [X] - Align left edge of content to the (padded) left edge of the viewport
+         [X] - Glass effect should include a blur applied to the bg image
+         [X] - Glass effect should appear raised with a bezel (border) applied to the right edge
 -->
 
 <html lang="en">
@@ -31,7 +31,7 @@ TODO:
    <!-- <header></header> -->
 
    <!-- The content body is the content that exists between the header and footer -->
-   <section role="content-body" aria-label="Content Body" class="flex">
+   <section role="content-body" aria-label="Content Body" class="flex-row">
       <div class="sidebar-wrapper">
          <div class="bezel"></div>
          <section class="sidebar">
@@ -51,7 +51,7 @@ TODO:
                I welcome and invite you to take a look around.
             </p>
          
-            <div><span class="__disable__ spacer"></span><button>Portfolio</button></div>
+            <div><button>Portfolio</button></div>
             <!-- <button>GitHub</button>
                   <button>Start Page</button> -->
 

@@ -21,10 +21,11 @@ body {
    background-image : url(../assets/images/standins/things-on-shelves.jpg);
    background-size  : cover;
    background-position-y: 75%;
+   border-radius: 6px;
+   overflow: hidden;
 }
 
 .sidebar-wrapper {
-   overflow: hidden;
    padding-right: 10px; /* Prevents cutting off the bezel's box-shadow */
    width: max(
       var(--sidebar_min-width),

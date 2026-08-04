@@ -10,6 +10,7 @@
    --color_bg-dark   : var(--CURSED_BLACK);
    --color_text-dark : var(--UNICORN_SILVER);
 
+   
    /* Assign default colors */
    --color_bg: var(--color_bg-light);
    --color_text: var(--color_text-light);
@@ -17,14 +18,11 @@
 
 * {margin: 0; padding: 0;}
 
-/* Make sure to never render the dev-banner if the dev files are missing */
-.dev-banner { display: none; }
 /* Easy way to diable elements/wrappers from the DOM for testing */
 .__disable__ {display: none !important;}
 
 
 html, body {
-   /* min-width: 98vw; */
    min-height: 98vh;
 
    width: 100%;
@@ -32,15 +30,11 @@ html, body {
 }
 
 body {
-
    color            : var(--color_text-light);
    background-color : var(--color_bg-light);
-
-   /* disable horizontal scroll */
-   /* overflow-x:hidden; */
 }
 
-.flex {
+.flex-row {
    display: flex;
    flex-direction: row;
 }
@@ -48,14 +42,6 @@ body {
 .flex-col {
    display: flex;
    flex-direction: column;
-}
-
-.no-wrap {
-   text-wrap: nowrap;
-}
-
-.spacer {
-   flex: 0 10;
 }
 
 @media (prefers-color-scheme: dark) {
