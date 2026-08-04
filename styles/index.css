@@ -12,21 +12,27 @@ body {
 }
 
 [role="content-body"] {
-   min-height       : 33rem;  /*FIXME Temporary solution to stretch the belly to fit content*/
-   height           : 100%;
-   max-height       : 800px;
-   align-items      : stretch;
-   width            : 100%;
-   max-width        : 1440px;
-   background-image : url(../assets/images/standins/things-on-shelves.jpg);
-   background-size  : cover;
-   background-position-y: 75%;
-   border-radius: 6px;
-   overflow: hidden;
+   min-height            : 33rem;  /*FIXME Temporary solution to stretch the belly to fit content*/
+   height                : 100%;
+   max-height            : 800px;
+   align-items           : stretch;
+   width                 : 100%;
+   max-width             : 1440px;
+   background-image      : url(../assets/images/standins/things-on-shelves.jpg);
+   background-size       : cover;
+   background-position-y : 75%;
+   border-radius         : 6px;
+   overflow              : hidden;
+   box-shadow: 5px 15px 200px 0px hsla(50, 100%, 50%, 0.05);
+   outline: 2px solid hsla(50, 100%, 50%, 0.20); /* TODO Switch to accent color var */
+   border-radius         : min(
+      calc(var(--sidebar_min-width) / 20),
+      (100vw - 100% - 10px)
+   );
 }
 
 .sidebar-wrapper {
-   padding-right: 10px; /* Prevents cutting off the bezel's box-shadow */
+   padding-right: 10px; /* Prevents cutting off top of the bezel's box-shadow */
    width: max(
       var(--sidebar_min-width),
       var(--sidebar_max-width)
@@ -39,7 +45,7 @@ body {
    display: flow-root;   /* FOR IE11  --  overflow: auto; (https://stackoverflow.com/a/1939980) */  
 
    padding-left     : var(--sidebar_min-h-padding);
-   background-color : #27272777;
+   background-color : hsla(0, 0%, 10%, 0.5);
    backdrop-filter  : blur(30px);
    clip-path        : polygon(0% 0%, 100% 0%, 50% 100%, 0% 100%);
    aspect-ratio     : 4/10;
