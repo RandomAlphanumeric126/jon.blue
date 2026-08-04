@@ -36,3 +36,10 @@ body:has(.hierarchy-on-hover:checked) {
       }
    }
 }
+
+/* Enable X-Ray Vision */
+body:has(.x-ray:checked) {
+   * {
+      opacity: 0.60 !important;
+   }
+}
