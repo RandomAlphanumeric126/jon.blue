@@ -9,8 +9,9 @@
    /* Dark Mode Colors */
    --color_bg-dark   : var(--CURSED_BLACK);
    --color_text-dark : var(--UNICORN_SILVER);
+   --color_accent-dark: var(--CHEERFUL_YELLOW);
 
-   
+
    /* Assign default colors */
    --color_bg: var(--color_bg-light);
    --color_text: var(--color_text-light);

@@ -12,6 +12,9 @@ body {
 }
 
 [role="content-body"] {
+   --this__outline--color    : hsla(from var(--color_accent-dark) h s l / 0.2);
+   --this__box-shadow--color : hsla(from var(--color_accent-dark) h s l / 0.05);
+
    min-height            : 33rem;  /*FIXME Temporary solution to stretch the belly to fit content*/
    height                : 100%;
    max-height            : 800px;
@@ -23,8 +26,8 @@ body {
    background-position-y : 75%;
    border-radius         : 6px;
    overflow              : hidden;
-   box-shadow: 5px 15px 200px 0px hsla(50, 100%, 50%, 0.05);
-   outline: 2px solid hsla(50, 100%, 50%, 0.20); /* TODO Switch to accent color var */
+   box-shadow: 5px 15px 200px 0px var(--this__box-shadow--color);
+   outline: 2px solid var(--this__outline--color); /* TODO Switch to accent color var */
    border-radius         : min(
       calc(var(--sidebar_min-width) / 20),
       (100vw - 100% - 10px)
