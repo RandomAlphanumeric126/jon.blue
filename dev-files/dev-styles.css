@@ -23,6 +23,7 @@ body:has(.hide-content:checked) {
    *:not(.dev-banner, .dev-banner *):where(p, :not(:has(>*))) {visibility: hidden;}
 }
 
+
 /* Enable hierarchical outlining */
 body:has(.hierarchy-on-hover:checked) {
    /* Apply outlines to hovered elements to show filial hierarchy */
@@ -36,6 +37,7 @@ body:has(.hierarchy-on-hover:checked) {
       }
    }
 }
+
 
 /* Enable X-Ray Vision */
 body:has(.x-ray:checked) {
