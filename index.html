@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+
+<!--
+TODO: 
+   [ ] - Add an image to the page featuring a collection of objects representing my interests/hobbies
+         [ ] - Set as background image that resizes to fit viewport
+         [ ] - Image remains visible through the 'sidebar' via a glass effect
+         [ ] - Image must be responsive
+               [ ] - Display  portrait version for mobile devices
+   [ ] - 'Sidebar' includes a translucent 'glass' aesthetic
+         [ ] - Angle the sidebar such that it narrows toward the bottom
+               ( Use clip-path + shape-outside to achieve this instead of rotate)
+               [ ] - Align right edge of content to the right (angled) edge of the sidebar
+               [ ] - Align left edge of content to the (padded) left edge of the viewport
+         [ ] - Glass effect should include a blur applied to the bg image
+         [ ] - Glass effect should appear raised with a bezel (border) applied to the right edge
+-->
+
 <html lang="en">
 <head>
    <meta charset="UTF-8">
@@ -9,33 +26,41 @@
 </head>
 <body>
 
-   <script src="./dev-files/dev-banner.js"></script>
+   <!-- <script src="./dev-files/dev-banner.js"></script> -->
 
-   <div class="belly flex">
+   <!-- <header></header> -->
 
-      <main class="">
+   <!-- The content body is the content that exists between the header and footer -->
+   <section role="content-body" aria-label="Content Body" class="flex">
+      <div class="sidebar-wrapper">
+         <div class="bezel"></div>
+         <section class="sidebar">
+         
+            <div class="cutout"></div>
 
-         <div class="current-wip hero">
+         
+            <h2>My own little slice of the web</h2>
+            <p class="small">It even has my name on it!</p>
+         
+            <p class="intro">
+               I'm a web developer who has many interests.
+               This site serves as a space where I can share some of those interests with the world.
+            </p>
+         
+            <p class="invitation">
+               I welcome and invite you to take a look around.
+            </p>
+         
+            <div><span class="__disable__ spacer"></span><button>Portfolio</button></div>
+            <!-- <button>GitHub</button>
+                  <button>Start Page</button> -->
 
-            <span class="flex">
-               <h2>Jonathan Blue</h2>
-               <p class="whisper-text inline">HEY... That's me! &ThickSpace; ^.^</p>
-            </span>
+         
+         </section>
+      </div>
+   </section>
 
-            <span class="flex intro">
-               <span class="flex-col">
-                  <p>A web developer with a passion for <span class="no-wrap">problem solving</span></p>
-                  <p class="whisper-text">and video games, of course!</p>
-               </span>
-               <div class="spacer"></div>
-            </span>
-
-         </div>
-
-      </main>
-
-   </div>
-
+   <!-- <footer></footer> -->
 
 </body>
 </html>

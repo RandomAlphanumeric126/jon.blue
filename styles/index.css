@@ -1,94 +1,137 @@
-/* TEMPORARY:
- * The following styles for testing purposes only.
- * They >>> MUST <<< be removed before delivery
- * Remove unneeded styles and refactor where necessary */
-
-
-main {
-   --border-style: 1px solid black;
-   border-left: var(--border-style);
-   border-right: var(--border-style);
-   max-width: 1920px;
+:root {
+   
+   --sidebar_min-width: 320px;
+   --sidebar_max-width: min(600px, 65%);
+   --sidebar_min-h-padding: 12.5%; /* TODO figure out a better value(s) */
 }
-
-
-/* END TEMPORARY STYLES */
-
 
 body {
-   display: flex;
-   flex-direction: column;
+   display: grid;
+   grid-template-columns: 100%;
+   place-items: center;
 }
 
-header, .belly, footer {
-   width: 100vw;
+[role="content-body"] {
+   min-height       : 33rem;  /*FIXME Temporary solution to stretch the belly to fit content*/
+   height           : 100%;
+   max-height       : 800px;
+   align-items      : stretch;
+   width            : 100%;
+   max-width        : 1440px;
+   background-image : url(../assets/images/standins/things-on-shelves.jpg);
+   background-size  : cover;
+   background-position-y: 75%;
 }
 
-.belly {
-   flex: 1;
-   justify-content: center;
+.sidebar-wrapper {
+   overflow: hidden;
+   padding-right: 10px; /* Prevents cutting off the bezel's box-shadow */
+   width: max(
+      var(--sidebar_min-width),
+      var(--sidebar_max-width)
+   );
 }
 
+.sidebar {
 
+   /* Prevent collapsing margins for div/children */
+   display: flow-root;   /* FOR IE11  --  overflow: auto; (https://stackoverflow.com/a/1939980) */  
 
-
-main {
-   flex             : 1;
-   display          : flex;
-   justify-content  : center;
-   align-items      : center;
-}
-
-.hero {
-   font-size      : 2rem;
-   flex           : 0 1 min(85%, 1370px);
-   display        : flex;
-   flex-direction : column;
-   min-height     : min(500px, 70vh);
-   padding        : 2rem;
-   gap            : 4rem;
-   padding-top: 6rem;
+   padding-left     : var(--sidebar_min-h-padding);
+   background-color : #27272777;
+   backdrop-filter  : blur(30px);
+   clip-path        : polygon(0% 0%, 100% 0%, 50% 100%, 0% 100%);
+   aspect-ratio     : 4/10;
+   max-height       : 2000px;
 
    h2 {
-      display: inline-block;
-      text-align: right;
-      flex: 0 1 fit-content;
-   } 
-
-   p:not(.whisper-text.inline) {
-      text-align: right;
-      max-width: 35rem;
+      text-align-last : left;
+      margin-top: 20%; /* FIXME: Find a better solution for centering all children vertically */
    }
 
-   .intro {
-      justify-content: flex-end;
+   button {
+      display : inline-block;
    }
+}
 
-   .flex-col {
-      flex: 1 0 fit-content;
+.bezel {
+   position: relative;
+  height: 110%;
+  z-index: 1;
+  transform: rotate(11.4deg);
+  transform-origin: top left;
+  left: 100%;
+  box-shadow: -3px 0 8px 2px rgba(235, 235, 235, 0.2);
+  float: left;
+}
+
+.cutout {
+   /* Define the shape's form and position */
+   float         : right;
+   /* clip-path     : polygon(100% 0, 100% 100%, 0% 100%); */
+   shape-outside : polygon(100% 0, 100% 100%, 0% 100%);
+   
+   /* Define the shape's dimensions */
+   height       : 100%;
+   aspect-ratio : 2/10;
+
+   /* background-color : maroon; */
+
+   shape-margin : var(--sidebar_min-h-padding);
+}
+
+.sidebar > :where(*:not(.cutout)) {
+
+   text-align      : justify;
+   text-align-last : right;
+
+   /* TODO: Trying to center the text content within the overlay.
+            Also try creating a single var for the minimum margin/padding
+            to apply to .cutout's shape-margin and .sidebar's padding-left
+   */
+   /* margin-left     : auto; */
+   margin: 0 auto;
+
+   max-width       : 490px;
+
+
+}
+
+.small {
+   font-size       : 0.5em;
+   text-align      : right;
+   text-align-last : right;
+}
+
+.intro {
+   margin-top : 5em;
+
+   br {
+      display       : inline-block;
+      margin-bottom : 5em;
    }
+}
+
+.intro, .invitation {
+   margin-top    : 20%;
+   margin-bottom : 20%;
+}
+
+
+
+/* Putting each button inside it's own container along with a spacer should make it
+   possible to force the buttons to appear to be left aligned while following the
+   shape of the slice angle */
+div:has(>.spacer) {
+
+   > * {flex:1}
+
 
    .spacer {
-      flex-basis: 10rem;
+      display          : inline-block;
+      width            : 300px;
+      flex-basis       : 300px;
+      height           : 0.5rem;
+      background-color : red;
    }
-
-   .flex-col, .intro {
-      align-items: flex-end;
-   }
-
-   .flex-col .whisper-text {
-      margin-right: 6.35rem;
-   }
-}
-
-
-
-.whisper-text {
-   font-size: 0.3em;
-}
-
-.whisper-text.inline {
-   align-self: flex-end;
-   margin-bottom: 0.46rem;
-   margin-left: 1em;
 }
