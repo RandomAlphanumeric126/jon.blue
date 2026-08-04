@@ -19,13 +19,25 @@
 
 /* Make sure to never render the dev-banner if the dev files are missing */
 .dev-banner { display: none; }
+/* Easy way to diable elements/wrappers from the DOM for testing */
+.__disable__ {display: none !important;}
+
+
+html, body {
+   /* min-width: 98vw; */
+   min-height: 98vh;
+
+   width: 100%;
+   height: 100%;
+}
 
 body {
-   min-width: 100vw;
-   min-height: 100vh;
 
    color            : var(--color_text-light);
    background-color : var(--color_bg-light);
+
+   /* disable horizontal scroll */
+   /* overflow-x:hidden; */
 }
 
 .flex {

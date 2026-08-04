@@ -12,27 +12,27 @@ html {
 
 
 
-/* Do not render children */
-.ignore-children * {
+
+
+.__disable__ {
    display: none;
 }
-
-/* Apply outlines to hovered elements to show filial hierarchy */
-*:hover {
-   &:has(:hover) {outline: 2px dotted red;}
-   *:not(:has(:hover)):hover {
-      outline: 2px dashed blue;
-
-
-      > * { outline: 1px dashed green; }
-   }
-}
-
-
-
-
 
 /* Hide page content for distraction free container styling */
 body:has(.hide-content:checked) {
    *:not(.dev-banner, .dev-banner *):where(p, :not(:has(>*))) {visibility: hidden;}
+}
+
+/* Enable hierarchical outlining */
+body:has(.hierarchy-on-hover:checked) {
+   /* Apply outlines to hovered elements to show filial hierarchy */
+   *:hover {
+      &:has(:hover) {outline: 2px dotted red;}
+      *:not(:has(:hover)):hover {
+         outline: 2px dashed blue;
+
+
+         > * { outline: 1px dashed green; }
+      }
+   }
 }
