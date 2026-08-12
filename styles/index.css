@@ -3,21 +3,41 @@
    --sidebar_min-width: 320px;
    --sidebar_max-width: min(600px, 65%);
    --sidebar_min-h-padding: 12.5%; /* TODO figure out a better value(s) */
+
+
+   /* These calculations ensure that the hero section fills the full
+      height of smaller screens with zero letterboxing. This was an
+      exercise to see if I could do it without media selectors.
+   */
+
+   /* Determine if the viewport is landscape or portrait */
+   --test1: calc(100vh - 100vw);
+   /* zero out the value above if it is negative */
+   --test2: max(0px, var(--test1));
+   /* tray to add the above value to the desired min-height */
+   --test3: calc(800px + max(0px, var(--test1)));
+   /* Do not exceed 100vh */
+   --test4: min(var(--test3), 100vh);
+
 }
 
 body {
    display: grid;
    grid-template-columns: 100%;
    place-items: center;
+   min-width: 350px;
 }
 
 [role="content-body"] {
    --this__outline--color    : hsla(from var(--color_accent-dark) h s l / 0.2);
    --this__box-shadow--color : hsla(from var(--color_accent-dark) h s l / 0.05);
 
-   min-height            : 33rem;  /*FIXME Temporary solution to stretch the belly to fit content*/
-   height                : 100%;
-   max-height            : 800px;
+   /* Can replace 3 height attributes with one clamp */
+   min-height            : 35rem;  /*FIXME Temporary solution to stretch the belly to fit content*/
+   height                : 100vh;  /* CHANGED: From 100% to 100vh, now relies on min-height */
+   /* max-height            : 800px; */ /* Results in letterboxing on tall (mobile) screens */
+   max-height: var(--test4);
+
    align-items           : stretch;
    width                 : 100%;
    max-width             : 1440px;
@@ -50,9 +70,8 @@ body {
    padding-left     : var(--sidebar_min-h-padding);
    background-color : hsla(0, 0%, 10%, 0.5);
    backdrop-filter  : blur(30px);
-   clip-path        : polygon(0% 0%, 100% 0%, 50% 100%, 0% 100%);
-   aspect-ratio     : 4/10;
-   max-height       : 2000px;
+   clip-path        : polygon(0% 0%, 100% 0%, 0% 100%, 0% 100%);
+   aspect-ratio     : 2/10;
 
    h2 {
       text-align-last : left;
@@ -66,13 +85,13 @@ body {
 
 .bezel {
    position: relative;
-  height: 110%;
-  z-index: 1;
-  transform: rotate(11.4deg);
-  transform-origin: top left;
-  left: 100%;
-  box-shadow: -3px 0 8px 2px rgba(235, 235, 235, 0.2);
-  float: left;
+   height: 110%;
+   z-index: 1;
+   transform: rotate(11.4deg);
+   transform-origin: top left;
+   left: 100%;
+   box-shadow: -3px 0 8px 2px rgba(235, 235, 235, 0.15);
+   float: left;
 }
 
 .cutout {
@@ -144,4 +163,8 @@ div:has(>.spacer) {
       height           : 0.5rem;
       background-color : red;
    }
+}
+
+.attention {
+   color: var(--color_accent-dark)
 }

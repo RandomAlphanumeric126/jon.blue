@@ -23,7 +23,9 @@
 .__disable__ {display: none !important;}
 
 
-html, body {
+html
+/* ,body */
+ {
    min-height: 98vh;
 
    width: 100%;
