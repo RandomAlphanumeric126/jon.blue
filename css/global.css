@@ -1,0 +1,106 @@
+:root{
+   /* Dark Mode Colors */
+   --colors-dark__bg--base   : var(--EERIE_BLACK    );
+   --colors-dark__bg--near   : var(--DIRE_WOLF      );
+   --colors-dark__bg--far    : var(--CURSED_BLACK   );
+   --colors-dark__text       : var(--UNICORN_SILVER );
+   --colors-dark__text--soft : var(--BLACK_MANA     );
+   --colors-dark__accent     : var(--CHEERFUL_YELLOW);
+
+   /* Light Mode Colors */
+   /* FIXME: These colors are awful */
+   --colors-light__bg--base   : var(--BRAINSTEM_GREY );
+   --colors-light__bg--near   : var(--UNICORN_SILVER );
+   --colors-light__bg--far    : var(--BLACK_MANA     );
+   --colors-light__text       : var(--EERIE_BLACK    );
+   --colors-light__text--soft : var(--RAVEN_BLACK    );
+   --colors-light__accent     : var(--CHEERFUL_YELLOW);
+
+   /* Shared styles */
+   --sizes__px--xs  : 3px;
+   --sizes__px--sm  : 6px;
+   --sizes__px--med : 12px;
+   --sizes__px--lg  : 18px;
+   --sizes__px--xl  : 24px;
+}
+
+:root {
+
+   /* Set Default Theme */
+   --bg-color--base   : var(--colors-dark__bg--base  );
+   --bg-color--near   : var(--colors-dark__bg--near  );
+   --bg-color--far    : var(--colors-dark__bg--far   );
+   --text-color       : var(--colors-dark__text      );
+   --text-color--soft : var(--colors-dark__text--soft);
+   --accent-color     : var(--colors-dark__accent    );
+
+
+   --global__outline-color       : color-mix(in srgb, var(--accent-color) 50%, var(--bg-color--far));
+   --global__outline-color_hover : color-mix(in srgb, var(--accent-color) 70%, var(--bg-color--far));
+   --global__outline-color_focus : var(--accent-color);
+
+   --global__placeholder-color   : color-mix(in srgb, var(--text-color) 45%, transparent);
+
+
+   --floater_drop-shadow: 1px 1px 6px -2px #000a;
+}
+
+::selection {
+   color            : var(--bg-color--base);
+   background-color : var(--accent-color);
+}
+
+
+body {
+   display        : flex;
+   flex-direction : column;
+   /* max-width: 1440px; /* Moved to reset.css */
+
+   color          : var(--text-color);
+}
+
+
+.belly,
+.sidebar,
+.header>*,
+.footer {
+   background-color: var(--bg-color--base);
+}
+
+/**************************************************
+ * Global Classes: General Purpose
+ */
+.flex-row {
+   display        : flex;
+   flex-direction : row;
+}
+
+.flex-col {
+   display        : flex;
+   flex-direction : column;
+}
+
+.touchable {
+   /* define the miniumum dimensions for interactive elements displayed on touch screens */
+   min-width: 48px;
+   min-height: 48px;
+   margin: 4px;
+   padding: 4px;
+
+   &:has( > * ) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+}
+
+
+/* Themes */
+@media (prefers-color-scheme: dark) {
+
+   _body {
+      color            : var(--text-color   );
+      background-color : var(--bg-color--far);
+   }
+
+}

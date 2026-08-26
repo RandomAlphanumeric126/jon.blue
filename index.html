@@ -1,73 +1,167 @@
 <!DOCTYPE html>
+<html lang="eng">
 
-<!--
-TODO: 
-   [ ] - Add an image to the page featuring a collection of objects representing my interests/hobbies
-         [ ] - Replace temporary stock photo with my own
-         [X] - Set as background image that resizes to fit viewport
-         [X] - Image remains visible through the 'sidebar' via a glass effect
-         [X] - Image must be responsive
-               [X] - Display  portrait version for mobile devices
-   [X] - 'Sidebar' includes a translucent 'glass' aesthetic
-         [X] - Angle the sidebar such that it narrows toward the bottom
-               [X] - Align right edge of content to the right (angled) edge of the sidebar
-               [X] - Align left edge of content to the (padded) left edge of the viewport
-         [X] - Glass effect should include a blur applied to the bg image
-         [X] - Glass effect should appear raised with a bezel (border) applied to the right edge
-   [ ] - Add hover animation that brightens the outline and glow around the content-body
-         [ ] - Uses an comfortably slow ease in out animation
-   [ ] - Implement Nav Links as <a> elements (inside a <nav>??)
-         - Placing the nav links inside a nav element will certainly break text alignment
-               - Maybe there is a way to add accessibility to indicate that these links are
-                 navigation links, without nesting them inside a nav element
--->
-
-<html lang="en">
 <head>
+
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="./styles/global-styles.css">
-   <link rel="stylesheet" href="./styles/index.css">
-   <title>Document</title>
+   <meta viewport="width=device-width, initial-scale=1">
+
+   <link rel="stylesheet" href="./css/color-palette.css">
+   <link rel="stylesheet" href="./css/reset.css">
+   <link rel="stylesheet" href="./css/global.css">
+   <link rel="stylesheet" href="./css/pages/index.css">
+
+   <script src="./js/pages/index/searchBar.js" defer></script>
+   
+   <title>Jon.Blue / Dashboard</title>
+
+   <!-- FIXME: REMOVE DEVELOPMENT STYLES -->
+   <style>
+
+      html {
+         font-size: 16px;
+      }
+
+   </style>
+
 </head>
+
+
+
+
 <body>
 
-   <script src="./dev-files/dev-banner.js"></script>
+   <header class="flex-row">
 
-   <!-- <header></header> -->
+      <!-- Interactive Logo -->
+      <p class="logo" tabindex="0" aria-label="Jon Dot Blue">
+         <span class="logo-initial">J<span class="fader">on</span></span>
+         <span class="ignorable" role="img">.</span>
+         <span class="logo-initial">B<span class="fader">lue</span></span>
+      </p>
 
-   <!-- The content body is the content that exists between the header and footer -->
-   <section role="content-body" aria-label="Content Body" class="flex-row">
-      <div class="sidebar-wrapper">
-         <div class="bezel"></div>
-         <section class="sidebar">
-         
-            <div class="cutout"></div>
+      <!-- Search Box and Engine Selector -->
+      <!-- Made this flex to eliminate undesired [whitespace] added by the browser -->
+      <form id="searchForm" class="flex-row">
 
-         
-            <h2>My own little slice of the web</h2>
-            <p class="small">It even has my name on it!</p>
-         
-            <p class="intro">
-               I'm a budding web developer who has many interests.
-               This site serves as a space where I can share some of those interests with the world.
+         <input id="searchBox" class="search-input" type="text" placeholder="Search..." />
+
+         <select class="engine-selector" id="engineSelect">
+
+            <option value = "https://search.brave.com/search?q="             >Brave          </option>
+            <option value = "https://duckduckgo.com/?q="                     >DuckDuckGo     </option>
+            <option value = "https://www.amazon.com/s?k="                    >Amazon         </option>
+            <option value = "https://github.com/search?type=repositories&q=" >GitHub Repos   </option>
+            <option value = "https://devdocs.io/?q="                         >DevDocs.io     </option>
+            <option value = "https://developer.mozilla.org/en-US/search?q="  >MDN            </option>
+            <option value = "https://www.reddit.com/search/?q="              >Reddit         </option>
+            <option value = "https://stackoverflow.com/search?q="            >Stack Overflow </option>
+            <option value = "https://www.yeggi.com/q/q="                     >Yeggi          </option>
+            
+         </select>
+
+      </form>
+
+      <!-- Proton Menu -->
+      <nav class="proton-menu" tabindex="0">
+      
+         <div class="proton-menu--header">
+            <p class="proton-menu--text" href="https://account.proton.me/apps">
+               Proton
             </p>
+         </div>
+      
+         <div class="proton-menu--dropdown">
+      
+            <div class="dropdown-heading-spacer"></div>
+      
+            <a href="https://mail.proton.me">
+               <img class="proton-menu--icon" src="./assets/images/proton/proton_mail_icon.svg" alt="proton mail icon">
+               <span class="proton-menu--text">Mail</span>
+            </a>
+      
+            <a href="https://calendar.proton.me">
+               <img class="proton-menu--icon" src="./assets/images/proton/proton_calendar_icon.svg" alt="proton calendar icon">
+               <span class="proton-menu--text">Calendar</span>
+            </a>
+      
+            <a href="https://drive.proton.me">
+               <img class="proton-menu--icon" src="./assets/images/proton/proton_drive_icon.svg" alt="proton drive icon">
+               <span class="proton-menu--text">Drive</span>
+            </a>
+      
+            <a href="https://account.proton.me/u/151/vpn/">
+               <img class="proton-menu--icon" src="./assets/images/proton/proton_vpn_icon.svg" alt="proton vpn icon">
+               <span class="proton-menu--text">VPN</span>
+            </a>
+      
+            <a href="https://Pass.proton.me">
+               <img class="proton-menu--icon" src="./assets/images/proton/proton_pass_icon.svg" alt="proton pass icon">
+               <span class="proton-menu--text">Pass</span>
+            </a>
+      
+            <a href="https://docs.proton.me">
+               <img class="proton-menu--icon" src="./assets/images/proton/proton_docs_icon.svg" alt="proton docs icon">
+               <span class="proton-menu--text">Docs</span>
+            </a>
+      
+            <a href="https://wallet.proton.me">
+               <img class="proton-menu--icon" src="./assets/images/proton/proton_wallet_icon.svg" alt="proton wallet icon">
+               <span class="proton-menu--text">Wallet</span>
+            </a>
+      
+         </div>
+      
+      </nav>
+
+   </header>
+
+
+   <div class="mid-section">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+
+         <ul>
+            <li class="touchable">
+               <a href="https://github.com/RandomAlphanumeric126">
+                  <img class="circle-icon" src="./assets/images/site icons/github.svg" alt="github icon">
+               </a>
+            </li>
+            <li class="touchable">
+               <a href="https://www.linkedin.com/in/jonathan-blue-25103441a/">
+                  <img class="circle-icon" src="./assets/images/site icons/linkedin.svg" alt="linked in icon">
+               </a>
+            </li>
+            <li class="touchable no-click">
+               <a tabindex="-1" href="#">                  
+                  <img class="circle-icon" src="./assets/images/site icons/ytube icon.png" alt="youtube icon">
+               </a>
+            </li>
+            <li class="touchable no-click">
+               <a tabindex="-1" href="#">                  
+                  <img class="circle-icon" src="./assets/images/site icons/twitch.svg" alt="twitch icon">
+               </a>
+            </li>
+         </ul>
          
-            <p class="invitation">
-               While this site is still under <em class="attention">HEAVY construction</em>,
-               you are welcome to take a look around.
-            </p>
+      </nav>
 
-            <p><a href="#"><strike>Portfolio</strike></a></p>
-            <p><a href="#"><strike>Github</strike></a></p>
-            <p><a href="#"><strike>Start Page</strike></a></p>
 
-         
-         </section>
-      </div>
-   </section>
+      <!-- Deliverable Content -->
+      <section role="content-body" aria-label="Content body">
 
-   <!-- <footer></footer> -->
+         <!-- Placeholder content while dashboard is in development -->
+          <h1>Welcome to the new home of Jonathan Blue</h1>
+          <p>Jonathan Blue is a software engineer based in
+            Western New York and is passionate about building scalable,
+            maintainable, and user-friendly applications.</p>
+
+      </section>
+   </div>
+
+
+   <footer></footer>
 
 </body>
+
 </html>

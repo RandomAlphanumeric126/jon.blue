@@ -1,0 +1,457 @@
+:root {
+   --page__min-width          : var(--RESET__TARGET-SCREENS_MIN, 320px);
+   --page__max-width          : var(--RESET__TARGET-SCREENS_MAX, 1920px);
+   --default-border-radius    : 1rem;
+   --responsive-border-radius : min(calc(100vw - var(--page__max-width)), var(--default-border-radius));
+   --header__large-text       : 2.5rem;
+
+   /* Make the BG split in two colors down the middle, vertically */
+   /* This trick hides the bg color behind the border radius of the header and the content body
+    * Whithout this, the bg color bleeds through and breaks the illusion of the content body
+    * being beneath the header/sidebar */
+   --bg-color-split: linear-gradient(
+      to right,
+      var(--bg-color--near) 50%,
+      var(--bg-color--far) 50%
+   );
+}
+
+body {
+   background: var(--bg-color-split);
+}
+
+
+.mid-section {
+   display: flex;
+   flex: 1;
+}
+
+
+header.flex-row {
+   --header__logo--flex: 1;
+   --header__menu--flex: 1;
+
+   --header--h-padding: 0.4em;
+
+   justify-content: space-between;
+   /* padding: 0.5rem 1.25rem; */
+   align-items: center;
+   position: relative;
+   background-color: var(--bg-color--near);
+   /* flex-wrap: wrap; */
+
+   /* Curver the bottom right corner if the screen is wide enough */
+   border-bottom-right-radius: var(--responsive-border-radius);
+}
+
+/* FIXME: Transitions twice on touch screens */
+.logo {
+
+   font-size       : var(--header__large-text);
+   display         : flex;
+   /* width           : 8ch;*/
+   flex: var(--header__logo--flex);
+   justify-content : flex-start;
+   /* margin-right: 2em; */
+   margin-left: var(--header--h-padding);
+
+   & span {
+      /*! flex-grow : 1; */
+      transition    : 0.35s;
+   }
+
+   & span:first-of-type {
+      width     : 0.9ch;
+      overflow  : hidden;
+      text-wrap : nowrap;
+      max-width : 2.9ch;
+   }
+
+   & span:last-of-type {
+      width     : 1.2ch;
+      overflow  : hidden;
+      text-wrap : nowrap;
+      max-width : 4ch;
+   }
+
+   & .fader {
+      opacity: 0;
+   }
+
+   &:where(:has(:hover), :focus) span:not(.ignorable) {
+      /*! width  : 100%; */
+      flex-grow  : var(--header__logo--flex);
+      transition : 0.65s;
+
+      & .fader { transition: 0.65s !important; opacity: 1;}
+   }
+}
+
+
+/* FIXME: On short screens (mobile landscape) the menu overflows the bottom edge of the screen
+ * forcing unwanted scrollbars on the entire page. Potential solution, switch the entires to
+ * display icons only, and diplayed in a grid instead of vertical list */
+/*****************************************
+ * Styles for Proton Dropdown menu
+ */
+.proton-menu {
+   font-size: var(--header__large-text);
+   flex: var(--header__menu--flex);
+
+   --this__padding: 0.65em;
+   --this__icon-width: 0.75em;
+
+   /* DimPos */
+   position: relative;
+   z-index: 1;
+   /* min-width: 5em; */
+
+
+   &:hover .proton-menu--dropdown,
+   &:where(:focus, :has(:focus)) .proton-menu--dropdown {
+      transition: opacity 0.5s;
+
+      outline: 2px solid var(--accent-color);
+      
+      /* FIXME: Use a more appropriate height calculation */
+      /* height  : calc(0.5em + (var(--num-entries) * (1.44em + var(--entries-gap)))); */
+      /* height: 17.5ch; */
+      height: 9.25em;
+
+      opacity : 1;
+      visibility: visible;
+   }
+}
+
+
+.proton-menu--dropdown {
+   transition: opacity 0.5s;
+   border: 2px solid transparent;
+   max-height: 95vh;
+
+
+   /*Content Handling*/
+   overflow-x : hidden;
+   overflow-y : auto;
+   
+   height         : 0px;
+   min-width      : max-content;
+
+   visibility     : hidden;  /* prevent clicking on links when menu is folded */
+   display        : flex;
+   flex-direction : column;
+   gap            : calc(var(--this__padding) * 0.5);
+
+   position       : absolute;
+   right          : 0;
+   top            : -10px;
+
+   border-radius  : 0 0 0 var(--default-border-radius);
+   border-bottom-right-radius: var(--responsive-border-radius);
+   
+   /* padding-top: 4.5rem; /* Replaced with a spacer element */ 
+   padding-left: 0.25em;
+
+   opacity: 0;
+
+   background-color: color-mix(in srgb, var(--bg-color--near), transparent 40%);
+   backdrop-filter: blur(4px);
+
+   /* Sub-Selectors */
+   .proton-menu--text {
+      font-size      : 0.55em;
+   }
+
+   a {
+      text-decoration: none;
+      /* height: 0.5em; */
+      display: flex;
+      align-items: center;
+      gap: 0.25em;
+   }
+
+   img {
+      display: inline-block;
+   }
+}
+
+.dropdown-heading-spacer {
+   flex: 0 0 1.4em;
+   background-color: var(--bg-color--near);
+   position: sticky;
+   top: 0;
+}
+
+.proton-menu--header {
+   display      : flex;
+
+   margin-right: var(--header--h-padding);
+   justify-content: flex-end;
+
+   p {
+      position : relative;
+      z-index  : 1;
+   }
+}
+
+.proton-menu--icon {
+   width: var(--this__icon-width);
+   height: auto;
+}
+
+
+/*
+ * END Styles for Proton Dropdown menu
+ *****************************************/
+
+
+
+/*****************************************
+ * BEGIN Search Form Styles
+ */
+
+form{
+      border-radius : 2em;
+      opacity       : 0.6;
+      outline       : 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+      transition    : 0.1s;
+      font-size     : 1.5rem;
+      flex          : 0 1;
+      flex-basis    : 40ch;
+      min-width     : 100px;
+      margin        : 0.5em 0.7em;
+
+   &:has(:focus) {
+      opacity    : 1;
+      outline    : 1px solid var(--accent-color);
+      scale      : 1.015;
+      box-shadow : 0px 0px 5px -1px var(--accent-color);
+   }
+}
+
+
+.search-input,
+.engine-selector {
+   border: none;
+   padding: 0.25em 0.5em;
+   outline: none;
+   color: var(--text-color--soft);
+}
+
+.search-input {
+
+   border-radius: 1em 0 0 1em;
+   /* flex: 1 0; */
+
+   background: linear-gradient(
+      var(--bg-color--far),
+      var(--bg-color--base)
+   );
+      
+   &::placeholder { 
+      color: var(--text-color--soft);
+   }
+
+   &:focus {
+      color: var(--text-color);
+   }
+}
+
+.engine-selector {
+   
+   border-left: 1px solid var(--bg-color--near);
+   border-radius: 0 1em 1em 0;
+   width: fit-content;
+   
+   background: linear-gradient(
+      var(--bg-color--base),
+      var(--bg-color--far)
+   );
+
+   &:focus {
+      color: var(--text-color);
+   }
+
+}
+
+/*
+ * END Search Form Styles
+ *****************************************/
+
+
+/*****************************************
+ * BEGIN Content Body Styles
+ */
+
+section[role="content-body"] {
+
+   /**** Background and Color ****/
+      background-color: var(--bg-color--far);
+      border-top-left-radius: var(--default-border-radius);
+
+   /* Styling for placeholder content while dashboard is in development */
+      flex: 1;
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      > h1, p {
+         width: min(75%, 500px);
+         text-align: center;
+      }
+}
+
+/*
+ * END Content Body Styles
+ *****************************************/
+
+/*****************************************
+ * Sidebar Styles
+ */
+
+   .sidebar {
+      padding: 0.75rem;
+      background-color: var(--bg-color--near);
+
+      ul {
+         display: flex;
+         flex-direction: column;
+      }
+   }
+
+   
+   /* Shared Icon Syles */
+   .circle-icon,
+   .square-icon {
+      /* DimPos */
+      width: auto;
+      height: 2.5rem;
+
+      /* Appearance */
+      background-color: var(--text-color);
+      border: calc(32px * 0.05) solid white;
+      outline: 1px solid black;
+
+      margin: 0.1em 0;
+
+   }
+   
+   .circle-icon {
+      border-radius: 50%;
+   }
+   
+   .square-icon {
+      border-radius: 10%;
+   }
+
+   /* Disable interactivity without disabling :hover */
+   /* SOURCE: https://stackoverflow.com/a/46665946 */
+   .no-click {
+      cursor: not-allowed;
+      
+
+      > * {
+         pointer-events: none;
+      }
+   }
+
+   .no-click {
+      opacity: 0.5;
+      filter: blur(1.5px);
+   }
+
+ /*
+ * END Sidebar Styles
+ ****************************************/
+
+
+/* TODO: Just playing around with some focus styles */
+:not(#searchForm *):focus {
+   /* 1) */
+   outline: 2px solid var(--accent-color);
+   outline-offset: 0.25rem;
+   /* box-shadow: 0px 0px 5px -1px var(--accent-color); */
+   border-radius: 0.5rem;
+/* 
+   outline: none;
+   text-decoration: underline;
+   text-decoration-color: var(--accent-color);
+   text-decoration-thickness: 2px; */
+
+   &.proton-menu {
+      /* 1) */
+      outline: none;
+      box-shadow: none;
+   }
+}
+
+
+
+
+
+
+
+/* Mobile Small */
+@media screen and (max-width: 320px) { }
+
+
+/* Mobile Large */
+@media screen and (max-width: 480px) {
+   header.flex-row {
+      flex-wrap: wrap;
+   }
+
+   .logo, .proton-menu {
+      flex-basis: 40vw;
+   }
+
+   #searchForm {
+      flex: 1;
+      flex-basis: 100%;
+      order: 1;
+   }
+}
+
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+   .logo, .proton-menu {
+      /* --header__logo--flex: 1; */
+      --header__menu--flex: 0;
+   }
+
+   header {
+      position: fixed;
+      top: 0;
+   }
+
+   .sidebar {
+      position: fixed; 
+      width: 100vw;
+      min-width: var(--page__min-width);
+      bottom: 0;
+      
+      ul {
+         flex-direction: row;
+         justify-content: center;
+      }
+   }
+
+   section[role="content-body"] {
+      /* If the sidebar is being drawn on the bottom edge, then we don't need the curve here */
+      border-top-left-radius: unset;
+   }
+}
+
+
+/* Desktop */
+@media (max-width: 1024px) {  }
+
+
+/* Large Desktop */
+@media (max-width: 1200px) {  }
+
+
+/* Extra Large */
+@media (max-width: 1440px) {  }
