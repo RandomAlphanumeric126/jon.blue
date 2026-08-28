@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- TODO:
-      [ ] - Switch from desktop friendly viewport dimensions to something that is rotation independant -->
+      [ ] - On mobile, viewport height does not take into account the browser UI -->
 
 <html lang="eng">
 
@@ -19,14 +19,6 @@
    
    <title>Jon.Blue / Dashboard</title>
 
-   <!-- FIXME: REMOVE DEVELOPMENT STYLES -->
-   <style>
-
-      html {
-         font-size: 16px;
-      }
-
-   </style>
 
 </head>
 
@@ -49,7 +41,7 @@
       <!-- Made this flex to eliminate undesired [whitespace] added by the browser -->
       <form id="searchForm" class="flex-row">
 
-         <input id="searchBox" class="search-input" type="text" placeholder="Search..." />
+         <input id="searchBox" class="search-input" type="search" placeholder="Search..." />
 
          <select class="engine-selector" id="engineSelect">
 
