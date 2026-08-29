@@ -15,7 +15,7 @@ html {
 
 
 .__disable__ {
-   display: none;
+   display: none !important;
 }
 
 /* Hide page content for distraction free container styling */
