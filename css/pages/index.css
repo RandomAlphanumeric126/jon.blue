@@ -27,280 +27,291 @@ body {
 }
 
 
-header.flex-row {
-   --header__logo--flex: 1;
-   --header__menu--flex: 1;
-
-   --header--h-padding: 0.4em;
-
-   justify-content: space-between;
-   /* padding: 0.5rem 1.25rem; */
-   align-items: center;
-   position: relative;
-   background-color: var(--bg-color--near);
-   /* flex-wrap: wrap; */
-
-   /* Curver the bottom right corner if the screen is wide enough */
-   border-bottom-right-radius: var(--responsive-border-radius);
-}
-
-/* FIXME: Transitions twice on touch screens */
-.logo {
-
-   font-size       : var(--header__large-text);
-   display         : flex;
-   /* width           : 8ch;*/
-   flex: var(--header__logo--flex);
-   justify-content : flex-start;
-   /* margin-right: 2em; */
-   margin-left: var(--header--h-padding);
-
-   & span {
-      /*! flex-grow : 1; */
-      transition    : 0.35s;
-   }
-
-   & span:first-of-type {
-      width     : 0.9ch;
-      overflow  : hidden;
-      text-wrap : nowrap;
-      max-width : 2.9ch;
-   }
-
-   & span:last-of-type {
-      width     : 1.2ch;
-      overflow  : hidden;
-      text-wrap : nowrap;
-      max-width : 4ch;
-   }
-
-   & .fader {
-      opacity: 0;
-   }
-
-   &:where(:has(:hover), :focus) span:not(.ignorable) {
-      /*! width  : 100%; */
-      flex-grow  : var(--header__logo--flex);
-      transition : 0.65s;
-
-      & .fader { transition: 0.65s !important; opacity: 1;}
-   }
-}
-
-
-/* FIXME: On short screens (mobile landscape) the menu overflows the bottom edge of the screen
- * forcing unwanted scrollbars on the entire page. Potential solution, switch the entires to
- * display icons only, and diplayed in a grid instead of vertical list */
-/*****************************************
- * Styles for Proton Dropdown menu
+/**************************************************
+ * Header Styles
  */
-.proton-menu {
-   font-size: var(--header__large-text);
-   flex: var(--header__menu--flex);
 
-   --this__padding: 0.65em;
-   --this__icon-width: 0.75em;
+   header.flex-row {
+      --header__logo--flex: 1;
+      --header__menu--flex: 1;
 
-   /* DimPos */
-   position: relative;
-   z-index: 1;
-   /* min-width: 5em; */
+      --header--h-padding: 0.4em;
 
-
-   &:hover .proton-menu--dropdown,
-   &:where(:focus, :has(:focus)) .proton-menu--dropdown {
-      transition: opacity 0.5s;
-
-      outline: 2px solid var(--accent-color);
-      
-      /* FIXME: Use a more appropriate height calculation */
-      /* height  : calc(0.5em + (var(--num-entries) * (1.44em + var(--entries-gap)))); */
-      /* height: 17.5ch; */
-      height: 9.25em;
-
-      opacity : 1;
-      visibility: visible;
-   }
-}
-
-
-.proton-menu--dropdown {
-   transition: opacity 0.5s;
-   border: 2px solid transparent;
-   max-height: 95vh;
-
-
-   /*Content Handling*/
-   overflow-x : hidden;
-   overflow-y : auto;
-   
-   height         : 0px;
-   min-width      : max-content;
-
-   visibility     : hidden;  /* prevent clicking on links when menu is folded */
-   display        : flex;
-   flex-direction : column;
-   gap            : calc(var(--this__padding) * 0.5);
-
-   position       : absolute;
-   right          : 0;
-   top            : -10px;
-
-   border-radius  : 0 0 0 var(--default-border-radius);
-   border-bottom-right-radius: var(--responsive-border-radius);
-   
-   /* padding-top: 4.5rem; /* Replaced with a spacer element */ 
-   padding-left: 0.25em;
-
-   opacity: 0;
-
-   background-color: color-mix(in srgb, var(--bg-color--near), transparent 40%);
-   backdrop-filter: blur(4px);
-
-   /* Sub-Selectors */
-   .proton-menu--text {
-      font-size      : 0.55em;
-   }
-
-   a {
-      text-decoration: none;
-      /* height: 0.5em; */
-      display: flex;
+      justify-content: space-between;
+      /* padding: 0.5rem 1.25rem; */
       align-items: center;
-      gap: 0.25em;
+      position: relative;
+      background-color: var(--bg-color--near);
+      /* flex-wrap: wrap; */
+
+      /* Curver the bottom right corner if the screen is wide enough */
+      border-bottom-right-radius: var(--responsive-border-radius);
    }
 
-   img {
-      display: inline-block;
-   }
-}
+   /**************************************************
+    * Logo
+    */
+      .logo {
 
-.dropdown-heading-spacer {
-   flex: 0 0 1.4em;
-   background-color: var(--bg-color--near);
-   position: sticky;
-   top: 0;
-}
+         font-size       : var(--header__large-text);
+         display         : flex;
+         /* width           : 8ch;*/
+         flex: var(--header__logo--flex);
+         justify-content : flex-start;
+         /* margin-right: 2em; */
+         margin-left: var(--header--h-padding);
 
-.proton-menu--header {
-   display      : flex;
+         & span {
+            /*! flex-grow : 1; */
+            transition    : 0.35s;
+         }
 
-   margin-right: var(--header--h-padding);
-   justify-content: flex-end;
+         & span:first-of-type {
+            width     : 0.9ch;
+            overflow  : hidden;
+            text-wrap : nowrap;
+            max-width : 2.9ch;
+         }
 
-   p {
-      position : relative;
-      z-index  : 1;
-   }
-}
+         & span:last-of-type {
+            width     : 1.2ch;
+            overflow  : hidden;
+            text-wrap : nowrap;
+            max-width : 4ch;
+         }
 
-.proton-menu--icon {
-   width: var(--this__icon-width);
-   height: auto;
-}
+         & .fader {
+            opacity: 0;
+         }
 
+         &:where(:has(:hover), :focus) span:not(.ignorable) {
+            /*! width  : 100%; */
+            flex-grow  : var(--header__logo--flex);
+            transition : 0.65s;
 
-/*
- * END Styles for Proton Dropdown menu
- *****************************************/
-
-
-
-/*****************************************
- * BEGIN Search Form Styles
- */
-
-form{
-      border-radius : 2em;
-      opacity       : 0.6;
-      outline       : 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
-      transition    : 0.1s;
-      font-size     : 1.5rem;
-      flex          : 0 1;
-      flex-basis    : 40ch;
-      min-width     : 100px;
-      margin        : 0.5em 0.7em;
-
-   &:has(:focus) {
-      opacity    : 1;
-      outline    : 1px solid var(--accent-color);
-      scale      : 1.015;
-      box-shadow : 0px 0px 5px -1px var(--accent-color);
-   }
-}
+            & .fader { transition: 0.65s !important; opacity: 1;}
+         }
+      }
+   /*
+    * END Styles for Proton Dropdown menu
+    *****************************************/
 
 
-.search-input,
-.engine-selector {
-   border: none;
-   padding: 0.25em 0.5em;
-   outline: none;
-   color: var(--text-color--soft);
-}
+   /*****************************************
+   * Proton Dropdown Menu
+   */
+      .proton-menu {
+         font-size: var(--header__large-text);
+         flex: var(--header__menu--flex);
 
-.search-input {
+         --this__padding: 0.65em;
+         --this__icon-width: 0.75em;
 
-   border-radius: 1em 0 0 1em;
-   /* flex: 1 0; */
+         /* DimPos */
+         position: relative;
+         z-index: 1;
+         /* min-width: 5em; */
 
-   background: linear-gradient(
-      var(--bg-color--far),
-      var(--bg-color--base)
-   );
-      
-   &::placeholder { 
-      color: var(--text-color--soft);
-   }
 
-   &:focus {
-      color: var(--text-color);
-   }
-}
+         &:hover .proton-menu--dropdown,
+         &:where(:focus, :has(:focus)) .proton-menu--dropdown {
+            transition: opacity 0.5s;
 
-.engine-selector {
-   
-   border-left: 1px solid var(--bg-color--near);
-   border-radius: 0 1em 1em 0;
-   width: fit-content;
-   
-   background: linear-gradient(
-      var(--bg-color--base),
-      var(--bg-color--far)
-   );
+            outline: 2px solid var(--accent-color);
+            
+            /* FIXME: Use a more appropriate height calculation */
+            /* height  : calc(0.5em + (var(--num-entries) * (1.44em + var(--entries-gap)))); */
+            /* height: 17.5ch; */
+            height: 9.25em;
 
-   &:focus {
-      color: var(--text-color);
-   }
+            opacity : 1;
+            visibility: visible;
+         }
+      }
 
-}
 
-/*
- * END Search Form Styles
- *****************************************/
+      .proton-menu--dropdown {
+         transition: opacity 0.5s;
+         border: 2px solid transparent;
+         max-height: 95vh;
 
+
+         /*Content Handling*/
+         overflow-x : hidden;
+         overflow-y : auto;
+         
+         height         : 0px;
+         min-width      : max-content;
+
+         visibility     : hidden;  /* prevent clicking on links when menu is folded */
+         display        : flex;
+         flex-direction : column;
+         gap            : calc(var(--this__padding) * 0.5);
+
+         position       : absolute;
+         right          : 0;
+         top            : -10px;
+
+         border-radius  : 0 0 0 var(--default-border-radius);
+         border-bottom-right-radius: var(--responsive-border-radius);
+         
+         /* padding-top: 4.5rem; /* Replaced with a spacer element */ 
+         padding-left: 0.25em;
+
+         opacity: 0;
+
+         background-color: color-mix(in srgb, var(--bg-color--near), transparent 40%);
+         backdrop-filter: blur(4px);
+
+         /* Sub-Selectors */
+         .proton-menu--text {
+            font-size      : 0.55em;
+         }
+
+         a {
+            text-decoration: none;
+            /* height: 0.5em; */
+            display: flex;
+            align-items: center;
+            gap: 0.25em;
+         }
+
+         img {
+            display: inline-block;
+         }
+      }
+
+      .dropdown-heading-spacer {
+         flex: 0 0 1.4em;
+         background-color: var(--bg-color--near);
+         position: sticky;
+         top: 0;
+      }
+
+      .proton-menu--header {
+         display      : flex;
+
+         margin-right: var(--header--h-padding);
+         justify-content: flex-end;
+
+         p {
+            position : relative;
+            z-index  : 1;
+         }
+      }
+
+      .proton-menu--icon {
+         width: var(--this__icon-width);
+         height: auto;
+      }
+
+
+   /*
+   * END Styles for Proton Dropdown menu
+   *****************************************/
+
+
+
+   /*****************************************
+   * BEGIN Search Form Styles
+   */
+
+      form{
+            border-radius : 2em;
+            opacity       : 0.6;
+            outline       : 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+            transition    : 0.1s;
+            font-size     : 1.5rem;
+            flex          : 0 1;
+            flex-basis    : 40ch;
+            min-width     : 100px;
+            margin        : 0.5em 0.7em;
+
+         &:has(:focus) {
+            opacity    : 1;
+            outline    : 1px solid var(--accent-color);
+            scale      : 1.015;
+            box-shadow : 0px 0px 5px -1px var(--accent-color);
+         }
+      }
+
+
+      .search-input,
+      .engine-selector {
+         border: none;
+         padding: 0.25em 0.5em;
+         outline: none;
+         color: var(--text-color--soft);
+      }
+
+      .search-input {
+
+         border-radius: 1em 0 0 1em;
+         /* flex: 1 0; */
+
+         background: linear-gradient(
+            var(--bg-color--far),
+            var(--bg-color--base)
+         );
+            
+         &::placeholder { 
+            color: var(--text-color--soft);
+         }
+
+         &:focus {
+            color: var(--text-color);
+         }
+      }
+
+      .engine-selector {
+         
+         border-left: 1px solid var(--bg-color--near);
+         border-radius: 0 1em 1em 0;
+         width: fit-content;
+         
+         background: linear-gradient(
+            var(--bg-color--base),
+            var(--bg-color--far)
+         );
+
+         &:focus {
+            color: var(--text-color);
+         }
+
+      }
+
+   /*
+   * END Search Form Styles
+   *****************************************/
+
+
+
+ /*
+  * END Header Styles
+  **************************************************/
 
 /*****************************************
  * BEGIN Content Body Styles
  */
 
-section[role="content-body"] {
+   section[role="content-body"] {
 
-   /**** Background and Color ****/
-      background-color: var(--bg-color--far);
-      border-top-left-radius: var(--default-border-radius);
+      /**** Background and Color ****/
+         background-color: var(--bg-color--far);
+         border-top-left-radius: var(--default-border-radius);
 
-   /* Styling for placeholder content while dashboard is in development */
-      flex: 1;
-      display: flex;
-      gap: 1rem;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      > h1, p {
-         width: min(75%, 500px);
-         text-align: center;
-      }
-}
+      /* Styling for placeholder content while dashboard is in development */
+         flex: 1;
+         display: flex;
+         gap: 1rem;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         > h1, p {
+            width: min(75%, 500px);
+            text-align: center;
+         }
+   }
 
 /*
  * END Content Body Styles
@@ -363,6 +374,58 @@ section[role="content-body"] {
 
  /*
  * END Sidebar Styles
+ ****************************************/
+
+
+/*****************************************
+ * Card Carousel
+ */
+
+   .card-carousel-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 90%;
+      height: 90%;
+      background-color: red;
+      flex-direction: column;
+      /* gap: 10rem; */
+   }
+
+   .card-info {
+      background-color: blue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      width: 50%;
+
+      > * {
+         text-align:  center;
+      }
+
+   }
+
+   .card-carousel {
+
+      background-color: green;
+      width: 90%;
+
+      ul {
+         display: flex;
+         justify-content: center;
+         gap: 1rem;
+      }
+
+      li {
+         width: 10rem;
+         height: 10rem;
+         background-color: yellow;
+      }
+   }
+
+/*
+ * END Card Carousel
  ****************************************/
 
 

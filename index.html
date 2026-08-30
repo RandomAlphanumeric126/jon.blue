@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 
-<!-- TODO:
-      [ ] - On mobile, viewport height does not take into account the browser UI -->
+<!--
+   TASKS:
+      [ ] - Convert mid-section to flex reverse column on mobile devices
+            [ ] - Test position sticky to see if it can remain fixed to bottom edge
+            [ ] - ALTERNATIVE: Add a margin-bottom to the content body to prevent the sidebar
+                  covering viewable content when scrolled down
+                     - This is not an ideal solution as it will enforce a scrollbar on the full page
+                       rather than just in the content body.
+-->
 
 <html lang="eng">
 
@@ -14,6 +21,7 @@
    <link rel="stylesheet" href="./css/reset.css">
    <link rel="stylesheet" href="./css/global.css">
    <link rel="stylesheet" href="./css/pages/index.css">
+   <link rel="stylesheet" href="./dev-files/dev-styles.css">
 
    <script src="./js/pages/index/searchBar.js" defer></script>
    
@@ -37,7 +45,6 @@
       </p>
 
       <!-- Search Box and Engine Selector -->
-      <!-- FIXME: Does not allow submission on mobile -->
       <!-- Made this flex to eliminate undesired [whitespace] added by the browser -->
       <form id="searchForm" class="flex-row">
 
@@ -154,6 +161,35 @@
             maintainable, and user-friendly applications.</p>
 
       </section>
+
+
+      <section role="content-body" aria-label="Content body" class="__disable__">
+
+         <div class="card-carousel-wrapper">
+
+            <div class="card-info">
+
+               <h1>Welcome to the new home of Jonathan Blue</h1>
+               <p>Jonathan Blue is a software engineer based in
+                  Western New York and is passionate about building scalable,
+                  maintainable, and user-friendly applications.</p>
+
+            </div>
+
+            <div class="card-carousel">
+
+               <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+               </ul>
+
+            </div>
+
+         </div>
+
+      </section>
+
    </div>
 
 
