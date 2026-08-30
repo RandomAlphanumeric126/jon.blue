@@ -2,19 +2,25 @@
    --page_margin: 0.75in;
 }
 
+html, body {
+   height: unset;
+}
+
 html {
    padding: 5vw;
-   background-color: gray;
+   background-color: #777;
    display: flex;
    justify-content: center;
    align-items: center;
+   min-width: fit-content;
+   /* min-height: fit-content; */
 }
 
 /* Override the global reset */
 body {
    max-width  : fit-content;
-   min-height : unset;
-   height     : unset;
+   min-height : fit-content;
+   max-height : fit-content;
 }
 
 hr {
@@ -42,6 +48,8 @@ li {
 
    color            : black;
    background-color : white;
+   outline: 1px solid #0005;
+   box-shadow: 3px 3px 5px 1px #0008;
    /* border           : 10px solid red; */
 
    display: flex;
