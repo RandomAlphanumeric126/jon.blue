@@ -1,19 +1,18 @@
 :root {
-   --page_margin: 0.75in;
+   --page_margin : 0.75in;
 }
 
 html, body {
-   height: unset;
+   height : unset;
 }
 
 html {
-   padding: 5vw;
-   background-color: #777;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   min-width: fit-content;
-   /* min-height: fit-content; */
+   padding          : 5vw;
+   background-color : #777;
+   display          : flex;
+   justify-content  : center;
+   align-items      : center;
+   min-width        : fit-content;
 }
 
 /* Override the global reset */
@@ -24,21 +23,21 @@ body {
 }
 
 hr {
-   margin: 1rem 0;
+   margin : 1rem 0;
 }
 
 li {
-   list-style: unset;
-   margin-left: 2.5em;
+   list-style  : unset;
+   margin-left : 2.5em;
 }
 
 .accolade__title {
-   display: inline-block;
-   width: 15ch;
+   display : inline-block;
+   width   : 15ch;
 }
 
 .keyword {
-   font-weight: bold;
+   font-weight : bold;
 }
 
 .page {
@@ -48,37 +47,42 @@ li {
 
    color            : black;
    background-color : white;
-   outline: 1px solid #0005;
-   box-shadow: 3px 3px 5px 1px #0008;
-   /* border           : 10px solid red; */
+   outline          : 1px solid #0005;
+   box-shadow       : 3px 3px 5px 1px #0008;
 
-   display: flex;
-   gap: 1rem;
-   overflow: hidden;
+   display  : flex;
+   gap      : 1rem;
+
+   overflow : hidden;
 }
 
 .profile {
-   flex: 1
+   flex : 1
 }
 
 .sidebar {
-   font-size: 0.85rem;
-   padding: 0.75rem;
-   display: flex;
-   flex-direction: column;
-   gap: 2rem;
-   flex-basis: 35%;
-   background-color: lightgray;
+   font-size        : 0.85rem;
+   padding          : 0.75rem;
+   display          : flex;
+   flex-direction   : column;
+   gap              : 2rem;
+   flex-basis       : 35%;
+   background-color : lightgray;
 }
 
 @page {
-   size          : letter portrait;
-   margin: 0;
+   size   : letter portrait;
+
+   /* I am eliminating the margin here because it has been baked
+      into the page class as a padding value. This was done to
+      allow the use of a :root variable which cannot be referenced
+      inside the @page rule. */
+   margin : 0;
 }
 
 @media print {
    html {
-      padding: 0;
+      padding : 0;
    }
 
    
