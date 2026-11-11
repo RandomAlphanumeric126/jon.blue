@@ -15,7 +15,7 @@
 
       <section class="profile">
 
-         <div class="personal-info">
+         <section class="personal-info">
             <h1>Jonathan Blue</h1>
             <p>Web Developer</p>
             <address>
@@ -23,28 +23,31 @@
                <br>
                <a href="tel:7163455814">(716) 345-5814</a>
             </address>
-         </div>
+         </section>
 
          <hr>
 
-         <div class="objective">
+         <section class="objective">
             <h2>Objective</h2>
-            <p contenteditable>[Insert Text Here]</p>
-         </div>
+            <p class="required indent-block" contenteditable></p>
+         </section>
 
          <hr>
 
-         <div class="education">
+         <section class="education">
             <h2>Education</h2>
-            <p>Bachelors degree of Science in Computer Science</p>
-            <p>Southern New Hampshire University</p>
-            <p>[October] 2026</p>
-            <p>GPA: 3.8</p>
+            <div class="indent-block">
+               <p>Bachelors degree of Science in Computer Science</p>
+               <p>Southern New Hampshire University</p>
+               <p><span class="awarded__title" >Graduated: </span>October 2026</p>
+               <p><span class="awarded__title" >GPA: </span>3.8</p>
+            </div>
 
-            <ul>Accolades:
+            <h3>Accolades:</h3>
+            <ul contenteditable>
                <li>
                   <div class="accolade">
-                     <span class="accolade__title">President’s List:</span>
+                     <span class="accolade__title">President's List:</span>
                      <span class="accolade__count">Awarded 5 times: 2024-2026</span>
                   </div>
                </li>
@@ -62,8 +65,8 @@
                </li>
             </ul>
 
+            <h3>Relevant Coursework:</h3>
             <ul contenteditable>
-               <span contenteditable="false">Relevant Coursework:</span>
                <li>Full Stack Development</li>
                <li>Mobile Architecture & Programming</li>
                <li>Client/Server Development</li>
@@ -77,23 +80,40 @@
                <li>UI/UX Design and Development</li>
                <li>Software Reverse Engineering</li>
             </ul>
-         </div>
+         </section>
 
          <hr>
 
-         <div class="experience">
+         <section class="experience">
+
             <h2>Projects</h2>
             
-            <ul contenteditable>[Project Title]
-               <li>[Description 1]</li>
-               <li>[Description 2]</li>
-            </ul>
-            
-            <ul contenteditable>[Project Title]
-               <li>[Description 1]</li>
-               <li>[Description 2]</li>
-            </ul>
-         </div>
+            <div class="project-entry" contenteditable>
+               <h3>JSON Browser</h3>
+               <ul>
+                  <li>Parses and displays JSON files using a familiar and user friendly interface.</li>
+                  <li>Simplifies navigation within deeply nested, JSON data.</li>
+               </ul>
+            </div>
+
+            <div class="project-entry" contenteditable>
+               <h3>https://Jon.Blue</h3>
+               <ul>
+                  <li>Provides a hub through which I can showcase my skills, interests, and experiences with the world.</li>
+                  <li>Prevents the habit of hiding under my rock by ~27%.</li>
+               </ul>
+            </div>
+
+            <!-- Template for additional projects
+            <div class="project-entry" contenteditable>
+               <h3>[ Project Title ]</h3>
+               <ul>
+                  <li>[Description 1]</li>
+                  <li>[Description 2]</li>
+               </ul>
+            </div>
+             -->
+         </section>
 
       </section>
 
@@ -102,7 +122,7 @@
 
          <div class="hard-skills">
             <h3>Hard Skills</h3>
-            <ul>
+            <ul contenteditable>
                <li>HTML</li>
                <li>CSS</li>
                <li>JavaScript</li>
@@ -117,11 +137,13 @@
 
          <div class="soft-skills">
             <h3>Soft Skills</h3>
+            <ul contenteditable>
                <li><span class="keyword">Communication</span> to ensure all parties are aware of, and up to date on, the state of current and upcoming projects.</li>
                <li><span class="keyword">Adaptability</span> in fast paced, rapid development environments.</li>
                <li><span class="keyword">Insatiable curiosity</span> and thirst for knowledge.</li>
                <li><span class="keyword">Self-motivated</span> to complete tasks in a timely manner, and to the highest possible quality.</li>
                <li><span class="keyword">Eye for details</span> which break consistency from the design as well as from other elements.</li>
+            </ul>
          </div>
       </section>
 

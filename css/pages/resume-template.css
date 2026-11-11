@@ -1,63 +1,120 @@
 :root {
-   --page_margin : 0.75in;
+   --global-border-radius : 4px;
+   --global-line-height   : 1.3;
+   --global-font-size     : 13px;
+   --indent-block-indent : 12px;
+   --viewport-padding     : 5vw;
+   --page_margin          : 0.75in;
+   --primary-color        : hsl(240, 50%, 95%);
+   --color-editable       : hsl(120, 40%, 40%);
+   --color-error          : hsl(0, 70%, 40%);
 }
 
-html, body {
+body,
+html {
    height : unset;
 }
 
-html {
-   padding          : 5vw;
-   background-color : #777;
-   display          : flex;
-   justify-content  : center;
-   align-items      : center;
-   min-width        : fit-content;
-}
-
-/* Override the global reset */
 body {
+   font-size   : var(--global-font-size);
+   line-height : var(--global-line-height);
    max-width  : fit-content;
    min-height : fit-content;
    max-height : fit-content;
 }
 
+html {
+   min-width : fit-content;
+   padding   : var(--viewport-padding);
+   display         : flex;
+   justify-content : center;
+   align-items     : center;
+   background-color : #777;
+   
+   /* Indicate that a required field is empty */
+   &:has(
+      .required:empty,
+      .required > br:only-child
+   ) {
+      background-color: var(--color-error);
+   }
+}
+
+h1,
+h2,
+h3 {
+   margin-top    : 0.25em;
+   margin-bottom : 0.125em;
+}
+
 hr {
-   margin : 1rem 0;
+   margin : 0.5rem 0;
 }
 
 li {
-   list-style  : unset;
-   margin-left : 2.5em;
+   list-style : unset;
+   margin-left : 2em;
 }
 
-.accolade__title {
+
+/*****************************/
+/*****      Classes      *****/
+
+.accolade__title,
+.awarded__title {
    display : inline-block;
    width   : 15ch;
+}
+
+.indent-block {
+   margin-left: var(--indent-block-indent);
+}
+
+.experience {
+   overflow-y : auto;
+   flex       : 1;
 }
 
 .keyword {
    font-weight : bold;
 }
 
+.objective .indent-block {
+   margin-left: 0;
+   padding-left: var(--indent-block-indent);
+}
+
 .page {
-   width   : 8.5in;
-   height  : 11in;
-   padding : var(--page_margin);
+   width            : 8.5in;
+   height           : 11in;
+   padding          : var(--page_margin);
 
-   color            : black;
+   display          : flex;
+   gap              : 1rem;
+   overflow         : hidden;
+
    background-color : white;
-   outline          : 1px solid #0005;
    box-shadow       : 3px 3px 5px 1px #0008;
-
-   display  : flex;
-   gap      : 1rem;
-
-   overflow : hidden;
+   color            : black;
+   outline          : 1px solid #0005;
 }
 
 .profile {
-   flex : 1
+
+   flex           : 1;
+   overflow       : hidden;
+   height         : 100%;
+   display        : flex;
+   flex-direction : column;
+
+   & > section {
+      padding : 0 1rem;
+   }
+
+}
+
+.project-entry {
+   padding-left: 12px;
 }
 
 .sidebar {
@@ -67,11 +124,57 @@ li {
    flex-direction   : column;
    gap              : 2rem;
    flex-basis       : 35%;
-   background-color : lightgray;
+   background-color : var(--primary-color);
+   border-radius    : var(--global-border-radius);
 }
 
+[contenteditable] {
+   border-left: 2px solid transparent;
+   outline-offset: -2px;
+
+   &:focus {
+      border-radius: var(--global-border-radius);
+   }
+}
+
+:has( > [contenteditable]) {
+
+   &:hover [contenteditable] {
+      border-left: 2px solid var(--color-editable);
+      /* background-color : hsla(0, 0%, 50%, 0.3); */
+   }
+
+   [contenteditable]:empty,
+   [contenteditable]:has(> br:only-child) {
+
+      br {
+         display : none;
+      }
+
+      &::after {
+         content : "This content will not be printed";
+         color   : hsl(0, 0%, 40%);
+      }
+
+   }
+
+}
+
+
+.required:empty,
+.required:has( > br:only-child) {
+   background-color: hsl(0, 100%, 85%);
+   
+   &:not(:hover) {border-radius: var(--global-border-radius);}
+   &:hover {
+      border-top-right-radius: var(--global-border-radius);
+      border-bottom-right-radius: var(--global-border-radius);
+   }
+}
+
+
 @page {
-   size   : letter portrait;
+   size : letter portrait;
 
    /* I am eliminating the margin here because it has been baked
       into the page class as a padding value. This was done to
@@ -85,5 +188,25 @@ li {
       padding : 0;
    }
 
-   
+   .page:has(.required:empty),
+   .page:has(.required > br:only-child) {
+      &::before {
+         content: "INCOMPLETE";
+         position: absolute;
+         transform: translate(calc(var(--page_margin) * -1.15), 3.5in) rotate(-35deg);
+         color: hsla(from var(--color-error) h s 45% / 0.75);
+         text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.75);
+         font-size: 8rem;
+
+      }
+   }
+
+   [contenteditable] {
+      background : none;
+
+      /* Hide empty content editables form print version */
+      &:has(> br:only-child) {
+      display : none;
+   }
+   }
 }
