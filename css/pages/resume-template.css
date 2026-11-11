@@ -128,6 +128,10 @@ li {
    border-radius    : var(--global-border-radius);
 }
 
+.soft-skills li {
+   margin-bottom: 0.25em;
+}
+
 [contenteditable] {
    border-left: 2px solid transparent;
    outline-offset: -2px;
